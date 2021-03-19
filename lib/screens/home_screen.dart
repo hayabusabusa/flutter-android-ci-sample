@@ -62,6 +62,8 @@ class _ListItem extends StatelessWidget {
     switch (type) {
       case ScreenType.Column :
         return ColumnScreen();
+      case ScreenType.Row:
+        return RowScreen();
       default:
         return const SizedBox();
     }
