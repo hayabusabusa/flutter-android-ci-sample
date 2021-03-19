@@ -1,8 +1,7 @@
-name: Android Build
+name: Android Deploy
 
 on: 
-  pull_request:
-    types: [ opened, synchronize ]
+  push:
     branches: [ main ]
 
 jobs:
@@ -33,5 +32,10 @@ jobs:
       - name: Install flutter dependency packages
         run: flutter pub get
 
-      - name: Build apk
-        run: flutter build apk
+      - name: Build apk with environment variables
+        run: |
+          echo '${{ secrets.KEYSTORE_BASE64 }}' | base64 -d > android/release.keystore
+          export KEYSTORE_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}'
+          export KEY_ALIAS='${{ secrets.KEY_ALIAS }}'
+          export KEY_PASSWORD='${{ secrets.KEY_PASSWORD }}'
+          flutter build apk --release
