@@ -64,6 +64,8 @@ class _ListItem extends StatelessWidget {
         return ColumnScreen();
       case ScreenType.Row:
         return RowScreen();
+      case ScreenType.Mixed:
+        return MixedScreen();
       default:
         return const SizedBox();
     }
