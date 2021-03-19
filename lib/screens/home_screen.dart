@@ -19,16 +19,16 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: screens.length,
-        itemBuilder: (_, index) => _ListItem(type: screens[index]),
+        itemBuilder: (_, index) => _ListViewItem(type: screens[index]),
       ),
     );
   }
 }
 
-class _ListItem extends StatelessWidget {
+class _ListViewItem extends StatelessWidget {
   final ScreenType type;
 
-  _ListItem({
+  _ListViewItem({
     Key? key,
     required this.type,
   }): super(key: key);
