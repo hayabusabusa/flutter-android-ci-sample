@@ -8,6 +8,7 @@ class HomeScreen extends StatelessWidget {
     ScreenType.Column,
     ScreenType.Row,
     ScreenType.Mixed,
+    ScreenType.ListView,
   ];
 
   @override
@@ -40,8 +41,10 @@ class _ListItem extends StatelessWidget {
         return 'Row';
       case ScreenType.Mixed:
         return 'Mixed';
+      case ScreenType.ListView:
+        return 'ListView';
       default:
-        return 'UNKOWN CASE';
+        throw UnimplementedError();
     }
   }
 
@@ -53,8 +56,10 @@ class _ListItem extends StatelessWidget {
         return 'Row を使ったレイアウト';
       case ScreenType.Mixed:
         return 'Column と Row を使ったレイアウト';
+      case ScreenType.ListView:
+        return 'ListView を使ったリストを表示する';
       default:
-        return 'UNKOWN CASE';
+        throw UnimplementedError();
     }
   }
 
@@ -67,7 +72,7 @@ class _ListItem extends StatelessWidget {
       case ScreenType.Mixed:
         return MixedScreen();
       default:
-        return const SizedBox();
+        throw UnimplementedError();
     }
   }
 
