@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample/screens/screens.dart';
 
 import './screen_type.dart';
 
@@ -57,6 +58,15 @@ class _ListItem extends StatelessWidget {
     }
   }
 
+  Widget _destination(ScreenType type) {
+    switch (type) {
+      case ScreenType.Column :
+        return ColumnScreen();
+      default:
+        return const SizedBox();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -69,7 +79,9 @@ class _ListItem extends StatelessWidget {
       ),
       trailing: Icon(Icons.chevron_right),
       onTap: () {
-
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => _destination(this.type))
+        );
       },
     );
   }
