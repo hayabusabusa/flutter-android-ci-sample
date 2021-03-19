@@ -19,7 +19,7 @@ jobs:
           java-version: '8.x'
       
       - name: Cache flutter
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: /Users/runner/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache
@@ -32,5 +32,10 @@ jobs:
       - name: Install flutter dependency packages
         run: flutter pub get
 
-      - name: Build apk
-        run: flutter build apk
+      - name: Build apk with environment variables
+        run: |
+          echo '${{ secrets.KEYSTORE_BASE64 }}' | base64 -d > android/release.keystore
+          export KEYSTORE_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}'
+          export KEY_ALIAS='${{ secrets.KEY_ALIAS }}'
+          export KEY_PASSWORD='${{ secrets.KEY_PASSWORD }}'
+          flutter build apk --release
