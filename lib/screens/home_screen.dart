@@ -71,6 +71,8 @@ class _ListItem extends StatelessWidget {
         return RowScreen();
       case ScreenType.Mixed:
         return MixedScreen();
+      case ScreenType.ListView:
+        return ListViewScreen();
       default:
         throw UnimplementedError();
     }
