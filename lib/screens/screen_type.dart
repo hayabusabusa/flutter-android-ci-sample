@@ -4,4 +4,5 @@ enum ScreenType {
   Mixed,
   ListView,
   Future,
+  ImageList,
 }
