@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
     ScreenType.Row,
     ScreenType.Mixed,
     ScreenType.ListView,
+    ScreenType.Future,
   ];
 
   @override
@@ -43,6 +44,8 @@ class _ListViewItem extends StatelessWidget {
         return 'Mixed';
       case ScreenType.ListView:
         return 'ListView';
+      case ScreenType.Future:
+        return 'Future';
       default:
         throw UnimplementedError();
     }
@@ -58,6 +61,8 @@ class _ListViewItem extends StatelessWidget {
         return 'Column と Row を使ったレイアウト';
       case ScreenType.ListView:
         return 'ListView を使ったリストを表示する';
+      case ScreenType.Future:
+        return 'Future を使った簡単な例';
       default:
         throw UnimplementedError();
     }
@@ -73,6 +78,8 @@ class _ListViewItem extends StatelessWidget {
         return MixedScreen();
       case ScreenType.ListView:
         return ListViewScreen();
+      case ScreenType.Future:
+        return FutureScreen();
       default:
         throw UnimplementedError();
     }
