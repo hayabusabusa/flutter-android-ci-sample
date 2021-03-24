@@ -3,4 +3,5 @@ enum ScreenType {
   Row,
   Mixed,
   ListView,
+  Future,
 }
