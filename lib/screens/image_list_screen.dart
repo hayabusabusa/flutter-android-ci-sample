@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:sample/screens/screens.dart';
+
 class ImageListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,49 +40,59 @@ class _ImageListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Row(
-        children: [
-          // NOTE: Image
-          Container(
-            width: 56,
-            height: 56,
-            decoration: BoxDecoration( 
-              image: DecorationImage(
-                image: NetworkImage(imageURL),
-                fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => ImageListViewerScreen(imageURL: imageURL),
+            fullscreenDialog: true,
+          )
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Row(
+          children: [
+            // NOTE: Image
+            Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration( 
+                image: DecorationImage(
+                  image: NetworkImage(imageURL),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(8)
               ),
-              borderRadius: BorderRadius.circular(8)
             ),
-          ),
-          // NOTE: Spacer
-          SizedBox(width: 12,),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // NOTE: Title
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold
+            // NOTE: Spacer
+            SizedBox(width: 12,),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // NOTE: Title
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
-                ),
-                // NOTE: Spacer
-                SizedBox(height: 4,),
-                // NOTE: Description
-                Text(
-                  description,
-                  style: TextStyle(
-                    color: Colors.grey,
+                  // NOTE: Spacer
+                  SizedBox(height: 4,),
+                  // NOTE: Description
+                  Text(
+                    description,
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
                   ),
-                ),
-              ],
-            )
-          ),
-        ],
+                ],
+              )
+            ),
+          ],
+        ),
       ),
     );
   }
