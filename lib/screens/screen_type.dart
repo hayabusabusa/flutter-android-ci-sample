@@ -5,4 +5,5 @@ enum ScreenType {
   ListView,
   Future,
   ImageList,
+  SharedPreferences,
 }

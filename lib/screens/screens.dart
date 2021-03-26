@@ -6,4 +6,5 @@ export './image_list_viewer_screen.dart';
 export './list_view_screen.dart';
 export './mixed_screen.dart';
 export './screen_type.dart';
+export './shared_preferences_screen.dart';
 export './row_screen.dart';

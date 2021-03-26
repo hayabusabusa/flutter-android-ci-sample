@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
     ScreenType.ListView,
     ScreenType.Future,
     ScreenType.ImageList,
+    ScreenType.SharedPreferences,
   ];
 
   @override
@@ -49,6 +50,8 @@ class _ListViewItem extends StatelessWidget {
         return 'Future';
       case ScreenType.ImageList:
         return '画像リスト';
+      case ScreenType.SharedPreferences:
+        return 'Shared Preferences';
       default:
         throw UnimplementedError();
     }
@@ -68,6 +71,8 @@ class _ListViewItem extends StatelessWidget {
         return 'Future を使った簡単な例';
       case ScreenType.ImageList:
         return '画像をリストで表示してみる例';
+      case ScreenType.SharedPreferences:
+        return '簡易的なDBを使ってみる';
       default:
         throw UnimplementedError();
     }
@@ -87,6 +92,8 @@ class _ListViewItem extends StatelessWidget {
         return FutureScreen();
       case ScreenType.ImageList:
         return ImageListScreen();
+      case ScreenType.SharedPreferences:
+        return SharedPreferencesScreen();
       default:
         throw UnimplementedError();
     }
